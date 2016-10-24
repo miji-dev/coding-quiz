@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="res/css/styles.css">
+
+    <title>Coding Quiz</title>
+</head>
+
+<body>
+    <div id="container" class="container">
+        <h1>Coding Quiz</h1>
+        <div id="quiz-container" class="quiz-container">
+
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            function loadJSON() {
+                var xobj = new XMLHttpRequest();
+                xobj.overrideMimeType("application/json");
+                xobj.open("GET", "NAME", true);
+                xobj.onreadystatechange = function () {
+                    if (xobj.readyState == 4 && xobj.status == "200") {
+                        var data = JSON.parse(xobj.responseText);
+                    }
+                };
+                xobj.send(null);
+            }
+            loadJSON();
+        }());
+    </script>
+</body>
+
+</html>
